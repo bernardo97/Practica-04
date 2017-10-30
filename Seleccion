@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main() {
+	int tam,i;
+	srand(time(NULL));
+	printf("De que tamanio quieres tu vector?\n");
+	scanf("%d",&tam);
+	int vect[tam];
+	for(i=0;i<tam;i++){
+	vect[i]=rand()%51;
+	}
+	printf("Vector sin ordenar\n");
+	for(i=0;i<tam;i++){
+	printf("[%d]",vect[i]);
+	}
+	printf("\nVector Ordenado\n");
+	int menor=0,k,j;
+	for(i=0;i<tam-1;i++){
+		menor=vect[i];
+		k=i;
+		for(j=i+1;j<tam;j++){
+			if(vect[j]<menor){
+				menor=vect[j];
+				k=j;
+			}
+		}
+	vect[k]=vect[i];
+	vect[i]=menor;
+	}
+	for(i=0;i<tam;i++){
+	printf("[%d]",vect[i]);
+		}
+	return 0;
+}
